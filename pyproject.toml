@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basin-extractor"
+version = "0.1.0"
+description = "A focused watershed delineation and hydrology preprocessing tool."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "geopandas>=0.14,<2",
+    "numpy>=1.24,<3",
+    "pandas>=2.0,<3",
+    "pyproj>=3.5,<4",
+    "rasterio>=1.3,<2",
+    "shapely>=2.0,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4,<9",
+]
+ui = [
+    "PySide6>=6.6,<7",
+]
+hydrology = [
+    "whitebox>=2.3,<3",
+]
+
+[project.scripts]
+basin-tool = "basin_tool.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["basin_tool*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

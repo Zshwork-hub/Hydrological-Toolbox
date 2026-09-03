@@ -1,0 +1,58 @@
+{
+  "name": "case01_yuzhong_station",
+  "description": "榆中站单点出水口的 ArcMap Desktop 10.8.2 参考案例。宛川河流域面作为参考边界。",
+  "paths": {
+    "required_source_dem": "arcgis案例/渝中县宛川河流域/dem/new.tif",
+    "required_analysis_mask": "arcgis案例/渝中县宛川河流域/榆中县/宛川河流域.shp",
+    "required_outlet_points": "arcgis案例/渝中县宛川河流域/榆中县/榆中站.shp",
+    "reference_clipped_dem": "arcgis案例/渝中县宛川河流域/榆中县/宛川河流域dem",
+    "reference_fill": "arcgis案例/渝中县宛川河流域/榆中县/Fill_宛川河流域.tif",
+    "reference_flow_direction": "arcgis案例/渝中县宛川河流域/榆中县/FlowDir.tif",
+    "reference_flow_accumulation": "arcgis案例/渝中县宛川河流域/榆中县/FlowAcc.tif",
+    "reference_stream_raster": "arcgis案例/渝中县宛川河流域/榆中县/rivernet3w.tif",
+    "reference_stream_vector": "arcgis案例/渝中县宛川河流域/榆中县/rivernet3w.shp",
+    "reference_stream_order_raster": "arcgis案例/渝中县宛川河流域/榆中县/rivernet3w_classification.tif",
+    "reference_stream_order_vector": "arcgis案例/渝中县宛川河流域/榆中县/rivernet3w_classification.shp",
+    "required_reference_watershed": "arcgis案例/渝中县宛川河流域/榆中县/宛川河流域.shp"
+  },
+  "processing": {
+    "flow_accumulation_threshold": 30000,
+    "threshold_unit": "flow_accumulation_cells",
+    "flow_direction_method": "D8",
+    "flow_direction_type": "NORMAL",
+    "flow_accumulation_data_type": "FLOAT",
+    "fill_z_limit": null,
+    "stream_order_method": "STRAHLER",
+    "analysis_extent_strategy": "clip_before_fill",
+    "grid_environment": {
+      "crs": "EPSG:4326",
+      "cell_size": [0.000303208277, 0.000303208277],
+      "width": 1667,
+      "height": 2059,
+      "origin": [103.940655120994, 36.128359555495],
+      "extent": [103.940655120994, 35.504053713152, 104.446103318753, 36.128359555495],
+      "snap_raster": "reference_clipped_dem",
+      "alignment": "match reference_clipped_dem",
+      "output_crs": "EPSG:4326",
+      "nodata": {
+        "source_dem": 32767,
+        "reference_clipped_dem": -32768,
+        "fill": 32767,
+        "flow_direction": 0,
+        "flow_accumulation": -3.4028234663852886e+38
+      }
+    }
+  },
+  "statistics": {
+    "area_unit": "km2",
+    "perimeter_unit": "km",
+    "method": "geodesic_wgs84",
+    "comparison_crs": "EPSG:4326"
+  },
+  "arcgis": {
+    "product": "ArcMap",
+    "version": "Desktop 10.8.2",
+    "spatial_analyst_required": true,
+    "reference_notes": "文件元数据存在历史版本信息；以用户确认的 Desktop 10.8.2 为基准。"
+  }
+}
